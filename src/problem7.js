@@ -48,13 +48,13 @@ function problem7(user, friends, visitors) {
     // if (sortable[i][1] <= 1) continue; // ??
     answer.push(sortable[i][0])
   }
-  console.log(answer)
+  //console.log(answer)
   return answer;
 }
 
-user = "mrko";
-friends = [ ["donut", "andole"], ["donut", "jun"], ["donut", "mrko"], ["shakevan", "andole"], ["shakevan", "jun"], ["shakevan", "mrko"] ]
-visitors = ["bedi", "bedi", "donut", "bedi", "shakevan"]
-problem7(user, friends, visitors)
+// user = "mrko";
+// friends = [ ["donut", "andole"], ["donut", "jun"], ["donut", "mrko"], ["shakevan", "andole"], ["shakevan", "jun"], ["shakevan", "mrko"] ]
+// visitors = ["bedi", "bedi", "donut", "bedi", "shakevan"]
+// problem7(user, friends, visitors)
 
 module.exports = problem7;
