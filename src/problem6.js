@@ -22,11 +22,12 @@ function problem6(forms) {
       answer.push(forms[i][0]);
     }
   }
-  //console.log(answer);
+  answer.sort();
+  console.log(answer);
   return answer;
 }
 
 
-//var forms = [ ["jm@email.com", "제이엠"], ["jason@email.com", "제이슨"], ["woniee@email.com", "워니"], ["mj@email.com", "엠제이"], ["nowm@email.com", "이제엠"] ]
-//problem6(forms)
+var forms = [ ["jm@email.com", "제이엠"], ["jason@email.com", "제이슨"], ["woniee@email.com", "워니"], ["mj@email.com", "엠제이"], ["nowm@email.com", "이제엠"] ]
+problem6(forms)
 module.exports = problem6;

@@ -41,8 +41,8 @@ function problem7(user, friends, visitors) {
   });
 
   //console.log(friends_dict)
-  console.log(dict)
-  console.log(sortable);
+  // console.log(dict)
+  // console.log(sortable);
   if (sortable[user])sortable[user] = 0;
   for (var i = 0; i < 5; i++){
     if (sortable[i][1] <= 1) continue; // ??
