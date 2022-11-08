@@ -16,7 +16,7 @@ class App {
   }
 
   isValid(answer) {
-    if (answer.length === 3) {
+    if (answer.length === 3 && !isNaN(Number(answer))) {
       return true;
     }
     return false;
@@ -59,6 +59,28 @@ class App {
       this.printResultText();
       this.continueGame();
     });
+  }
+
+  printResultText() {
+    let resultText = "";
+    if (this.result.ball > 0) {
+      resultText += `${this.result.ball}볼 `;
+    }
+
+    if (this.result.strike > 0) {
+      resultText += `${this.result.strike}스트라이크 `;
+    }
+
+    if (!this.result.ball && !this.result.strike) {
+      resultText = "낫싱";
+    }
+
+    MissionUtils.Console.print(resultText);
+    if (this.result.strike === 3) {
+      MissionUtils.Console.print("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    } else {
+      this.playerInput();
+    } // 반복
   }
 
   play() {
