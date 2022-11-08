@@ -1,42 +1,22 @@
 # 구현할 기능 목록
 
-- play 메소드
-  comRandomInit 메소드를 사용하여 컴퓨터의 숫자를 정하고
-  게임 시작, 게임 동작 함수 호출, 게임 종료시
-  userInputForContinue 메소드로
-  재시작 물어보고 재시작 or 프로그램 종료
+- isStrike, isBall
+  스트라이크, 볼 인지 확인하는 메소드
 
-- comRandomInit 메소드
-  컴퓨터의 숫자 정보를 초기화하는 메소드
-  중복 검사도 하면서 1~9사이의 각자 다른 정수 세개를 하나의 리스트로 만들어서 반환한다.
+- isVaild
+  유효한 입력인지 확인하는 메소드
 
-- playGame 메소드
-  게임을 진행하는 메소드.
-  playerInputForGame 메소드를 사용하여 플레이어의 입력을 받아서
-  countBallStrike 메소드를 이용하여
-  볼, 스트라이크 개수를 센 다음, 결과값을 출력하고
-  3 스트라이크가 안될 경우 계속 한다는 정보를 리턴하면서 메소드 종료
-  3 스트라이크가 될 경우 끝났다는 정보를 리턴하면서 메소드 종료
+- comNumberInit
+  서로 다른 무작위 숫자 3개를 만들어주는 함수
 
-- countBallStrike 메소드
-  볼, 스트라이크 개수 카운트 해서 리턴하는 메소드
+- playerInput
+  사용자의 입력을 받고, 비동기로 작동하므로 리턴값이 없어야 한다. 고로 이 함수 안에서 최종 결과를 받고, 결과를 출력하고, 게임을 계속하는 함수도 넣는다.
 
-- playerInputForGame 메소드
-  플레이어에게 입력받은 값을 반환하는 메소드
-  Number 배열 형식으로 반환
-  isInputValid 메소드로 오류검사
-  false 반환시 프로그램 종료
+- printResultText
+  게임 결과를 출력한다.
 
-- isInputValid 메소드
-  입력받은 값이 올바른 값인지 확인하고 올바를경우 true 아닐경우 false 반환
-
-- userInputForContinue 메소드
-  게임 종료 후, 계속할지 그만둘지 유저에게 물어보는 메소드
-  isInputValidForContinue 메소드로 잘못된 정보 입력 감지시 throw로 예외처리
-  유저에게 1 또는 2를 입력받고, 1 입력받을시 true, 2는 false 반환
-
-- isInputValidForContinue
-  userInputForContinue 에서 받은 입력를 예외처리하기 위한 메소드
+- continueGame
+  게임을 계속할지 입력받는다.
 
 - 해야할 일
   사용자가 잘못된 값을 입력한 경우 throw문을 사용해 예외를 발생시킨후 애플리케이션은 종료되어야 한다.
