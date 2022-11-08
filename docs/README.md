@@ -23,10 +23,20 @@
 
 - playerInputForGame 메소드
   플레이어에게 입력받은 값을 반환하는 메소드
+  Number 배열 형식으로 반환
+  isInputValid 메소드로 오류검사
+  false 반환시 프로그램 종료
+
+- isInputValid 메소드
+  입력받은 값이 올바른 값인지 확인하고 올바를경우 true 아닐경우 false 반환
 
 - userInputForContinue 메소드
   게임 종료 후, 계속할지 그만둘지 유저에게 물어보는 메소드
+  isInputValidForContinue 메소드로 잘못된 정보 입력 감지시 throw로 예외처리
   유저에게 1 또는 2를 입력받고, 1 입력받을시 true, 2는 false 반환
+
+- isInputValidForContinue
+  userInputForContinue 에서 받은 입력를 예외처리하기 위한 메소드
 
 - 해야할 일
   사용자가 잘못된 값을 입력한 경우 throw문을 사용해 예외를 발생시킨후 애플리케이션은 종료되어야 한다.
