@@ -12,7 +12,7 @@
 
 - playGame 메소드
   게임을 진행하는 메소드.
-  playerInput 메소드를 사용하여 플레이어의 입력을 받아서
+  playerInputForGame 메소드를 사용하여 플레이어의 입력을 받아서
   countBallStrike 메소드를 이용하여
   볼, 스트라이크 개수를 센 다음, 결과값을 출력하고
   3 스트라이크가 안될 경우 계속 한다는 정보를 리턴하면서 메소드 종료
@@ -21,7 +21,7 @@
 - countBallStrike 메소드
   볼, 스트라이크 개수 카운트 해서 리턴하는 메소드
 
-- playerInput 메소드
+- playerInputForGame 메소드
   플레이어에게 입력받은 값을 반환하는 메소드
 
 - userInputForContinue 메소드
