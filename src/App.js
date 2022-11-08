@@ -18,6 +18,16 @@ class App {
 
     Console.close();
   }
+
+  comRandomInit() {
+    const randomArr = [];
+    while (randomArr.length < this.MAXLEN) {
+      const number = MissionUtils.Random.pickNumberInRange(1, 9);
+      if (randomArr.includes(number) === false) randomArr.push(number);
+    }
+    return randomArr;
+    // randomArr = [ 3, 9, 7 ]
+  }
 }
 
 const a = new App();
