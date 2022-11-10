@@ -15,4 +15,5 @@ class Lotto {
   // TODO: 추가 기능 구현
 }
 
+const a = new Lotto(3213);
 module.exports = Lotto;
