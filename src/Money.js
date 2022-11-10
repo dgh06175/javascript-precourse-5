@@ -3,13 +3,12 @@ const MissionUtils = require("@woowacourse/mission-utils");
 
 const { Console } = MissionUtils;
 
-class Money {
-  #money;
+const LOTTOPRICE = 1000;
 
-  constructor(money) {
-    this.#money = money;
+class Money {
+  constructor() {
     this.check = {
-      isThousand: (answer) => answer % 1000 === 0,
+      isDividedByLottoPrice: (answer) => answer % LOTTOPRICE === 0,
       isInt: (answer) => Number.isInteger(+answer),
     };
   }
@@ -17,15 +16,19 @@ class Money {
   inputMoney() {
     Console.readLine("구입금액을 입력해 주세요.", (answer) => {
       if (!this.validateForMoney(answer)) {
-        throw new Error("잘못된 입력입니다..");
+        throw new Error(`금액은 ${LOTTOPRICE}의 배수여야 합니다..`);
       }
+      const lottoCount = Number(answer) / LOTTOPRICE;
+      return lottoCount;
     });
   }
 
   validateForMoney(money) {
-    const { isThousand, isInt } = this.check;
-    if (!isThousand(money) || !isInt(money)) {
+    const { isDividedByLottoPrice, isInt } = this.check;
+    if (!isDividedByLottoPrice(money) || !isInt(money)) {
       return false;
     }
   }
 }
+
+module.exports = Money;

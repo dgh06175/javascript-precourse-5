@@ -3,6 +3,15 @@
 ## 미션 목표
 1. 클래스(객체)를 분리하는 연습
 2. 도메인 로직에 대한 단위 테스트를 작성하는 연습
+3. 값을 하드 코딩 하지 않는다
+4. readme 상세히 작성한다, 기능 목록 업데이트 한다.
+5. 함수를 입력, 출력, 검증 모두 나눈다. 함수당 15줄 이하로
+6. indent 2 이하로
+
+#### 2주차 피드백
+```
+https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/edit#heading=h.dw22idnvgko3
+```
 
 ## 기능 요구 사항
 
@@ -25,10 +34,17 @@
 
 ## 기능 목록
 
-- [ ] 로또 구입 금액 (money)을 입력 받는다. - Money#inputMoney()
-   - [ ] 1000으로 나누어 떨어지지 않을 시 예외 발생, 에러 출력, 종료 - Money#validateForMoney()
+- [x] 로또 구입 금액 (money)을 입력 받는다. - Money#inputMoney()
+   - [x] 1000으로 나누어 떨어지지 않을 시 예외 발생, 에러 출력, 종료 - Money#validateForMoney()
+
+- [ ] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Lotto#createRandomLottoNumbers()
+
 - [ ] 6개의 로또 당첨 번호와 보너스 번호 1개를 입력받는다. - Lotto#inputLottoWinNumber()
    - [ ] 각 숫자의 범위가 1~45 가 아니거나, 당첨 번호가 6자리가 아닐경우 예외 발생 - Lotto#validate()
-- [ ] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Lotto#createRandomLottoNumbers()
+
 - [ ] 입력받은 당첨 번호와 무작위로 발행한 로또 번호들을 비교한다. - Judgement#compare()
    - [ ] 로또 당첨 내역과 수익률을 출력한다. - App#printResults()
+
+- 해야할 일
+   아이패드로 메소드들 개형 그리고 하기
+   다른 파일의 클래스의 메소드 가져오는거 공부하기
