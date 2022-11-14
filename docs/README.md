@@ -34,12 +34,12 @@ https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/
 
 ## 기능 목록
 
-- [x] 로또 구입 금액 (money)을 입력 받는다. 값 유효 검사도 같이한다. - Money#inputMoney()
-   - [x] money가 올바른 값이 아닐경우 false 리턴 - Money#validateForMoney()
+- [x] 로또 구입 금액 (money)을 입력 받는다. 값 유효 검사도 같이한다. - Numbers#inputMoney()
+   - [x] money가 올바른 값이 아닐경우 false 리턴 - Numbers#validateForMoney()
 
-- [ ] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Lotto#createRandomLottoNumbers()
+- [x] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Numbers#createRandomLottoNumbers()
 
-- [ ] 6개의 로또 당첨 번호와 보너스 번호 1개를 입력받는다. - Lotto#inputLottoWinNumber()
+- [ ] 6개의 로또 당첨 번호와 보너스 번호 1개를 입력받는다. - Numbers#inputLottoWinNumber()
    - [ ] 각 숫자의 범위가 1~45 가 아니거나, 당첨 번호가 6자리가 아닐경우 예외 발생 - Lotto#validate()
 
 - [ ] 입력받은 당첨 번호와 무작위로 발행한 로또 번호들을 비교한다. - Judgement#compare()
