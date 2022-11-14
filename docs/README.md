@@ -34,8 +34,8 @@ https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/
 
 ## 기능 목록
 
-- [x] 로또 구입 금액 (money)을 입력 받는다. - Money#inputMoney()
-   - [x] 1000으로 나누어 떨어지지 않을 시 예외 발생, 에러 출력, 종료 - Money#validateForMoney()
+- [x] 로또 구입 금액 (money)을 입력 받는다. 값 유효 검사도 같이한다. - Money#inputMoney()
+   - [x] money가 올바른 값이 아닐경우 false 리턴 - Money#validateForMoney()
 
 - [ ] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Lotto#createRandomLottoNumbers()
 

@@ -20,9 +20,13 @@ class Lotto {
     }
   }
 
-  createRandomLottoNumbers() {
-    // const money = new Money();
-    // money.validateForMoney
+  createRandomLottoNumbers(buyLottoCount) {
+    const lottoAry = [];
+    for (let i = 0; i < buyLottoCount; i += 1) {
+      const tmpAry = Random.pickUniqueNumbersInRange(1, 45, 6);
+      lottoAry.push(tmpAry.sort((a, b) => a - b));
+    }
+    return lottoAry;
   }
 
   inputLottoWinNumber() {
@@ -34,4 +38,5 @@ class Lotto {
   // TODO: 추가 기능 구현
 }
 const a = new Lotto([1, 2, 3, 4, 5, 6]);
+a.createRandomLottoNumbers(8);
 module.exports = Lotto;
