@@ -1,8 +1,10 @@
-const Money = require('../src/Money');
-const Lotto = require('../src/Lotto');
+const Numbers = require('./Numbers');
 
 class App {
-  play() {}
+  play() {
+    const n = new Numbers();
+    n.inputMoney();
+  }
 }
 
 const a = new App();
