@@ -39,12 +39,12 @@ https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/
 
 - [x] 로또 구입 금액에 맞게 무작위로 로또 번호를 여러(money/1000)개 발행한다. - Numbers#createRandomLottoNumbers()
 
-- [ ] 6개의 로또 당첨 번호와 보너스 번호 1개를 입력받는다. - Numbers#inputLottoWinNumber()
-   - [ ] 각 숫자의 범위가 1~45 가 아니거나, 당첨 번호가 6자리가 아닐경우 예외 발생 - Lotto#validate()
+- [X] 6개의 로또 당첨 번호와 보너스 번호 1개를 입력받는다. - Numbers#inputLottoWinNumber()
+   - [X] 각 숫자의 범위가 1~45 가 아니거나, 당첨 번호가 6자리가 아닐경우 예외 발생 - Lotto#validate()
 
-- [ ] 입력받은 당첨 번호와 무작위로 발행한 로또 번호들을 비교한다. - Judgement#compare()
-   - [ ] 로또 당첨 내역과 수익률을 출력한다. - App#printResults()
+- [X] 입력받은 당첨 번호와 무작위로 발행한 로또 번호들을 비교한다. - Results#compare()
+   - [X] 로또 당첨 내역과 수익률을 출력한다. - Results#printResults()
 
 - 해야할 일
-   아이패드로 메소드들 개형 그리고 하기
-   다른 파일의 클래스의 메소드 가져오는거 공부하기
+   함수 15줄 아래로 바꾸기 (입력, 출력, 검증 모두 나눈다)
+   indent 2 이하인지 확인하기
