@@ -48,3 +48,4 @@ https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/
 - 해야할 일
    [X] 함수 15줄 아래로 바꾸기 (입력, 출력, 검증 모두 나눈다)
    [X] indent 2 이하인지 확인하기
+   [X] 테스트 코드 추가하기
