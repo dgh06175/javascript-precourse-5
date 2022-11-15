@@ -1,4 +1,5 @@
 const MissionUtils = require('@woowacourse/mission-utils');
+const Lotto = require('./Lotto');
 
 const Result = require('./Result');
 
@@ -15,7 +16,7 @@ class Numbers {
   }
 
   inputMoney() {
-    Console.readLine('구입금액을 입력해 주세요.', (answer) => {
+    Console.readLine('구입금액을 입력해 주세요.\n', (answer) => {
       if (!this.validateForMoney(answer)) {
         throw new Error(`금액은 ${LOTTO_PRICE}의 배수여야 합니다..`);
       }
@@ -38,21 +39,38 @@ class Numbers {
       const tmpAry = Random.pickUniqueNumbersInRange(1, 45, 6);
       lottoAry.push(tmpAry.sort((a, b) => a - b));
     }
+    this.printRandomLottoNumbers(buyLottoCount, lottoAry);
     this.inputLottoWinNumber(lottoAry);
+  }
+
+  printRandomLottoNumbers(buyLottoCount, lottoAry) {
+    Console.print(`\n${buyLottoCount}개를 구매했습니다.\n`);
+    for (let i = 0; i < buyLottoCount; i += 1) {
+      Console.print(lottoAry[i]);
+    }
   }
 
   inputLottoWinNumber(lottoAry) {
     let winNumber;
     let bonusNumber;
 
-    Console.readLine('당첨 번호를 입력해주세요.', (userInput) => {
-      winNumber = userInput.split(',').map((i) => Number(i));
+    Console.readLine('\n당첨 번호를 입력해주세요.\n', (winNumberInput) => {
+      winNumber = winNumberInput.split(',').map((i) => Number(i));
+      Console.readLine(
+        '\n보너스 번호를 입력해 주세요.\n',
+        (bonusNumberInput) => {
+          bonusNumber = Number(bonusNumberInput);
+          const l = new Lotto(winNumber, bonusNumber);
+          l.validate(winNumber, bonusNumber);
+          const r = new Result(lottoAry, winNumber, bonusNumber);
+          r.compareLotto(lottoAry, winNumber);
+        }
+      );
     });
-
-    Console.readLine('보너스 번호를 입력해 주세요.', (userInput) => {
-      bonusNumber = Number(userInput);
-    });
-
-    Result(lottoAry, winNumber, bonusNumber);
   }
 }
+
+const a = new Numbers();
+a.inputMoney();
+
+module.exports = Numbers;

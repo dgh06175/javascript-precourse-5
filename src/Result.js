@@ -1,4 +1,8 @@
 /* eslint-disable comma-dangle */
+const MissionUtils = require('@woowacourse/mission-utils');
+
+const { Console } = MissionUtils;
+
 class Result {
   constructor(lottoAry, winNumber, bonusNumber) {
     this.winCount = {
@@ -11,7 +15,6 @@ class Result {
     this.lottoAry = lottoAry;
     this.winNumber = winNumber;
     this.bonusNumber = bonusNumber;
-    this.compareLotto(lottoAry, winNumber);
   }
 
   compareLotto() {
@@ -49,8 +52,9 @@ class Result {
   }
 
   printResults() {
+    Console.print('\n당첨 통계\n---\n');
     const resultText = `3개 일치 (5,000원) - ${this.winCount.sameNumberis3}개\n4개 일치 (50,000원) - ${this.winCount.sameNumberis4}개\n5개 일치 (1,500,000원) - ${this.winCount.sameNumberis5}개\n5개 일치, 보너스 볼 일치 (30,000,000원) - ${this.winCount.sameNumberis5andBonus}개\n6개 일치 (2,000,000,000원) - ${this.winCount.sameNumberis6}개`;
-    console.log(resultText);
+    Console.print(resultText);
   }
 }
 
@@ -63,3 +67,5 @@ const a = new Result(
   [4, 5, 6, 7, 8, 9],
   3
 );
+
+module.exports = Result;
