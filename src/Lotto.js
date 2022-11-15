@@ -2,6 +2,10 @@ const MissionUtils = require('@woowacourse/mission-utils');
 
 const { Console, Random } = MissionUtils;
 
+const MIN_NUM = 1;
+const MAX_NUM = 45;
+const LOTTO_LENGTH = 6;
+
 class Lotto {
   #numbers;
 
@@ -11,36 +15,45 @@ class Lotto {
     this.bonusNumber = bonusNumber;
   }
 
-  validate(numbers, bonusNumber) {
-    if (numbers.length !== 6) {
+  isLenSix(num) {
+    if (num.length !== LOTTO_LENGTH) {
       throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
     }
-    const validCheckSet = new Set(numbers);
-    if (validCheckSet.size !== numbers.length) {
+  }
+
+  isDup(num) {
+    const validCheckSet = new Set(num);
+    if (validCheckSet.size !== num.length) {
       throw new Error('[ERROR] 로또 번호는 중복되는 번호가 없어야 합니다.');
     }
-    if (numbers.includes(bonusNumber)) {
+  }
+
+  isBonusDup(num, bonusNum) {
+    if (num.includes(bonusNum)) {
       throw new Error('[ERROR] 보너스 번호는 로또 번호와 중복되면 안됩니다.');
     }
+  }
 
-    let isBetween1to45 = true;
-    for (let index = 0; index < 6; index += 1) {
-      if (numbers[index] < 1 || numbers[index] > 45) {
-        isBetween1to45 = false;
-      }
+  isNumValueOk(num, bonusNum) {
+    let check = true;
+    for (let index = 0; index < LOTTO_LENGTH; index += 1) {
+      if (num[index] < MIN_NUM || num[index] > MAX_NUM) check = false;
     }
-    if (bonusNumber < 1 || bonusNumber > 45) {
-      isBetween1to45 = false;
-    }
+    if (bonusNum < MIN_NUM || bonusNum > MAX_NUM) check = false;
 
-    if (isBetween1to45 === false) {
+    if (check === false) {
       throw new Error('[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.');
     }
+  }
+
+  validate(numbers, bonusNumber) {
+    this.isLenSix(numbers);
+    this.isDup(numbers);
+    this.isBonusDup(numbers, bonusNumber);
+    this.isNumValueOk(numbers, bonusNumber);
   }
 
   // TODO: 추가 기능 구현
 }
 
-// const a = new Lotto([1, 2, 3, 4, 5, 6]);
-// a.createRandomLottoNumbers(8);
 module.exports = Lotto;
