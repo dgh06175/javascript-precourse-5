@@ -18,7 +18,8 @@ class Numbers {
   inputMoney() {
     Console.readLine('구입금액을 입력해 주세요.\n', (answer) => {
       if (!this.validateForMoney(answer)) {
-        throw new Error(`금액은 ${LOTTO_PRICE}의 배수여야 합니다..`);
+        // throw new Error(`금액은 ${LOTTO_PRICE}의 배수여야 합니다..`);
+        throw new Error('[ERROR]');
       }
       const buyLottoCount = Number(answer) / LOTTO_PRICE;
       this.createRandomLottoNumbers(buyLottoCount);
@@ -40,17 +41,21 @@ class Numbers {
       lottoAry.push(tmpAry.sort((a, b) => a - b));
     }
     this.printRandomLottoNumbers(buyLottoCount, lottoAry);
-    this.inputLottoWinNumber(lottoAry);
+    this.inputLottoWinNumber(lottoAry, buyLottoCount);
   }
 
   printRandomLottoNumbers(buyLottoCount, lottoAry) {
-    Console.print(`\n${buyLottoCount}개를 구매했습니다.\n`);
+    Console.print(`\n${buyLottoCount}개를 구매했습니다.`);
     for (let i = 0; i < buyLottoCount; i += 1) {
-      Console.print(lottoAry[i]);
+      Console.print(this.makeAryText(lottoAry[i]));
     }
   }
 
-  inputLottoWinNumber(lottoAry) {
+  makeAryText(ary) {
+    return `[${ary[0]}, ${ary[1]}, ${ary[2]}, ${ary[3]}, ${ary[4]}, ${ary[5]}]`;
+  }
+
+  inputLottoWinNumber(lottoAry, buyLottoCount) {
     let winNumber;
     let bonusNumber;
 
@@ -61,9 +66,8 @@ class Numbers {
         (bonusNumberInput) => {
           bonusNumber = Number(bonusNumberInput);
           const l = new Lotto(winNumber, bonusNumber);
-          l.validate(winNumber, bonusNumber);
           const r = new Result(lottoAry, winNumber, bonusNumber);
-          r.compareLotto(lottoAry, winNumber);
+          r.compareLotto(buyLottoCount);
         }
       );
     });
