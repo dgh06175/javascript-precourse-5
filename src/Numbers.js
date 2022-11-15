@@ -74,7 +74,4 @@ class Numbers {
   }
 }
 
-const a = new Numbers();
-a.inputMoney();
-
 module.exports = Numbers;

@@ -46,5 +46,5 @@ https://docs.google.com/document/d/1QhiufVNV0ZixOPu99jFp1EN265dyN0WeXKcvtFNQ5nQ/
    - [X] 로또 당첨 내역과 수익률을 출력한다. - Results#printResults()
 
 - 해야할 일
-   [ ] 함수 15줄 아래로 바꾸기 (입력, 출력, 검증 모두 나눈다)
-   [ ] indent 2 이하인지 확인하기
+   [X] 함수 15줄 아래로 바꾸기 (입력, 출력, 검증 모두 나눈다)
+   [X] indent 2 이하인지 확인하기

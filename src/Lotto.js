@@ -1,7 +1,3 @@
-const MissionUtils = require('@woowacourse/mission-utils');
-
-const { Console, Random } = MissionUtils;
-
 const MIN_NUM = 1;
 const MAX_NUM = 45;
 const LOTTO_LENGTH = 6;
