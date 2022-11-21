@@ -22,16 +22,18 @@
 
 ### 기능 목록 및 프로그램 설계
 
-- [x] 시작 문구 출력. - OutputView#startOutput()
+- [x] 게임 초기화 하는 메소드 Game#initGame()
 
-- [x] 다리의 길이 입력 받기. (3~20) - InputView#readBridgeSize()
+  - [x] 시작 문구 출력. - OutputView#startOutput()
 
-- [x] 다리 생성하기 - BridgeMaker#makeBridge()
-      다리 정보를 문자열로 반환 ex)"UDDU"
+  - [x] 다리의 길이 입력 받기. (3~20) - InputView#readBridgeSize()
 
-  - [x] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
+  - [x] 다리 생성하기 - BridgeMaker#makeBridge()
+        다리 정보를 문자열로 반환 ex)"UDDU"
 
-- [ ] 게임 진행. - Game#moveOneStep(생성한 다리, 이제 건널 다리 index)
+    - [x] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
+
+- [ ] 게임 진행. - Game#moveOneStep(이제 건널 다리 index)
 
   - [ ] 위칸인 'U' 또는 아래칸인 'D' 입력받는다. - InputView#readMoving()
   - [ ] 이동한다. BridgeGame#move()
@@ -39,7 +41,7 @@
         입력받은 U,D와 다음 bridge칸의 문자열이 같을경우 false 반환
   - [ ] 다리를 출력한다. 현재 진행한 칸 까지 이동한 칸 출력. - OutputView#printMap()
 
-- [ ] 이동 완료 후 다음에 뭐 할지 판단하는 메서드 next()
+- [ ] 이동 완료 후 다음에 뭐 할지 판단하는 메서드 whatNext()
 
   - [ ] 이동에 성공했고 다리를 건넜다면 결과창 출력 후 게임 종료 - OutputView#printResult()
   - [ ] 이동에 성공했고 아직 다리를 건너지 못했으면 다시 moveOneStep(생성한 다리, index + 1)
