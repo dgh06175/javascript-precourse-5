@@ -33,13 +33,14 @@
 
     - [x] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
 
+- [x] 위칸인 'U' 또는 아래칸인 'D' 입력받는다. - InputView#readMoving()
+
 - [ ] 게임 진행. - Game#moveOneStep(이제 건널 다리 index)
 
-  - [ ] 위칸인 'U' 또는 아래칸인 'D' 입력받는다. - InputView#readMoving()
-  - [ ] 이동한다. BridgeGame#move()
+  - [x] 이동한다. BridgeGame#move()
         입력받은 U,D와 다음 bridge칸의 문자열이 같을경우 true 반환
         입력받은 U,D와 다음 bridge칸의 문자열이 같을경우 false 반환
-  - [ ] 다리를 출력한다. 현재 진행한 칸 까지 이동한 칸 출력. - OutputView#printMap()
+  - [x] 다리를 출력한다. 현재 진행한 칸 까지 이동한 칸 출력. - OutputView#printMap()
 
 - [ ] 이동 완료 후 다음에 뭐 할지 판단하는 메서드 whatNext()
 
