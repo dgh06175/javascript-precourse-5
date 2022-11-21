@@ -22,14 +22,14 @@
 
 ### 기능 목록 및 프로그램 설계
 
-- [ ] 시작 문구 출력. - OutputView#startOutput()
+- [x] 시작 문구 출력. - OutputView#startOutput()
 
-- [ ] 다리의 길이 입력 받기. (3~20) - InputView#readBridgeSize()
+- [x] 다리의 길이 입력 받기. (3~20) - InputView#readBridgeSize()
 
-- [ ] 다리 생성하기 - BridgeMaker#makeBridge()
+- [x] 다리 생성하기 - BridgeMaker#makeBridge()
       다리 정보를 문자열로 반환 ex)"UDDU"
 
-  - [ ] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
+  - [x] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
 
 - [ ] 게임 진행. - Game#moveOneStep(생성한 다리, 이제 건널 다리 index)
 
