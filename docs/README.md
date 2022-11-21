@@ -20,7 +20,7 @@
   - 게임 결과의 총 시도한 횟수는 첫 시도를 포함해 게임을 종료할 때까지 시도한 횟수를 나타낸다.
 - 사용자가 잘못된 값을 입력한 경우 throw문을 사용해 예외를 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
 
-### 기능 목록
+### 기능 목록 및 프로그램 설계
 
 - [ ] 시작 문구 출력. - OutputView#startOutput()
 
@@ -31,7 +31,7 @@
 
   - [ ] 무작위 값으로 0과 1중에 0이면 아래, 1이면 위 칸이 건널 수 있는 칸 - BridgeRandomNumberGenerator#generate()
 
-- [ ] 게임 진행. - play#moveOneStep(생성한 다리, 이제 건널 다리 index)
+- [ ] 게임 진행. - Game#moveOneStep(생성한 다리, 이제 건널 다리 index)
 
   - [ ] 위칸인 'U' 또는 아래칸인 'D' 입력받는다. - InputView#readMoving()
   - [ ] 이동한다. BridgeGame#move()
