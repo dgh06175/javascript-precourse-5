@@ -17,7 +17,8 @@ class Game {
   #attempts;
 
   constructor() {
-    this.#attempts = 0;
+    this.#attempts = 1;
+    this.#location = 0;
     this.initGame();
   }
 
@@ -27,14 +28,12 @@ class Game {
   }
 
   getBridge(input) {
-    this.#attempts += 1;
     this.#bridgeLength = Number(input);
     this.#bridge = BridgeMaker.makeBridge(
       this.#bridgeLength,
       BridgeRandomNumberGenerator.generate
     );
-    // console.log(this.#bridge);
-    this.#location = 0;
+    console.log(this.#bridge);
     this.getMove();
   }
 
@@ -53,23 +52,49 @@ class Game {
   whatNext(moveSuccess) {
     if (moveSuccess) {
       if (this.#location === this.#bridgeLength) {
-        OutputView.printResult(
-          this.#bridge,
-          this.#location - 1,
-          SUCCESS,
-          this.#attempts
-        );
+        this.gameClear();
       } else {
-        InputView.readMoving.bind(this)(this.moveOneStep);
+        this.continueMove();
       }
     } else {
-      OutputView.printResult(
-        this.#bridge,
-        this.#location - 1,
-        FAIL,
-        this.#attempts
-      );
+      InputView.readGameCommand.bind(this)(this.moveFail);
     }
+  }
+
+  gameClear() {
+    OutputView.printResult(
+      this.#bridge,
+      this.#location - 1,
+      SUCCESS,
+      this.#attempts
+    );
+  }
+
+  continueMove() {
+    InputView.readMoving.bind(this)(this.moveOneStep);
+  }
+
+  moveFail(input) {
+    if (input === 'R') {
+      this.gameRetry();
+    } else {
+      this.gameFailiure();
+    }
+  }
+
+  gameRetry() {
+    this.#location = 0;
+    this.#attempts += 1;
+    this.getMove();
+  }
+
+  gameFailiure() {
+    OutputView.printResult(
+      this.#bridge,
+      this.#location - 1,
+      FAIL,
+      this.#attempts
+    );
   }
 }
 
