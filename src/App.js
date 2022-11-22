@@ -3,7 +3,6 @@ const Game = require('./Game');
 class App {
   play() {
     const GAME = new Game();
-    GAME.initGame();
   }
 }
 
