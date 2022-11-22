@@ -5,6 +5,10 @@
  * BridgeMaker의 파일 경로는 변경할 수 없다.
  * BridgeMaker의 메서드의 시그니처(인자, 이름)와 반환 타입은 변경할 수 없다.
  */
+
+const DOWN_CHAR = 'D';
+const UP_CHAR = 'U';
+
 const BridgeMaker = {
   /**
    * @param {number} size 다리의 길이
@@ -15,11 +19,8 @@ const BridgeMaker = {
     const bridge = [];
     for (let i = 0; i < size; i += 1) {
       const randomNumber = generateRandomNumber();
-      if (randomNumber === 0) {
-        bridge.push('D');
-      } else {
-        bridge.push('U');
-      }
+      if (randomNumber === 0) bridge.push(DOWN_CHAR);
+      if (randomNumber === 1) bridge.push(UP_CHAR);
     }
     return bridge;
   },
