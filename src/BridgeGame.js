@@ -9,6 +9,8 @@ const SUCCESS = true;
 const FAIL = false;
 const RETRY = 'R';
 const QUIT = 'Q';
+const FIRST_ATTEMPTS = 1;
+const RESET_LOCATION = 0;
 
 class BridgeGame {
   #bridge;
@@ -22,7 +24,7 @@ class BridgeGame {
   constructor(bridge, location) {
     this.#bridge = bridge;
     this.#location = location;
-    this.#attempts = 1;
+    this.#attempts = FIRST_ATTEMPTS;
     this.initGame();
   }
 
@@ -76,11 +78,8 @@ class BridgeGame {
 
   whatNext(moveSuccess) {
     if (moveSuccess) {
-      if (this.#location === this.#bridgeLength) {
-        this.gameClear();
-      } else {
-        this.continueMove();
-      }
+      if (this.#location === this.#bridgeLength) this.gameClear();
+      else this.continueMove();
     } else {
       InputView.readGameCommand.bind(this)(this.moveFail);
     }
@@ -111,7 +110,7 @@ class BridgeGame {
   }
 
   retry() {
-    this.#location = 0;
+    this.#location = RESET_LOCATION;
     this.#attempts += 1;
     this.getMove();
   }

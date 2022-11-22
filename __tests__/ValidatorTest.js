@@ -1,4 +1,8 @@
 const Validator = require('../src/Validate/Validator');
+const ERROR = '[ERROR] ';
+const BRIGE_SIZE_ERROR = '다리 길이는 3부터 20 사이의 숫자여야 합니다.';
+const MOVE_ERROR = '이동할 칸은 U또는 D여야 합니다.';
+const GAME_COMMAND_ERROR = '재시작 여부는 R또는 Q여야 합니다.';
 
 describe('사용자 입력 유효성 검사 테스트', () => {
   test.each([['-1'], ['2'], ['21'], ['a']])(
@@ -6,7 +10,7 @@ describe('사용자 입력 유효성 검사 테스트', () => {
     (input) => {
       expect(() => {
         Validator.validateBridgeSizeInput(input);
-      }).toThrow('3 이상 20 이하의 정수를 입력해주세요.');
+      }).toThrow(BRIGE_SIZE_ERROR);
     }
   );
 
@@ -21,7 +25,7 @@ describe('사용자 입력 유효성 검사 테스트', () => {
     (input) => {
       expect(() => {
         Validator.validateMoving(input);
-      }).toThrow('U 또는 D를 입력해주세요.');
+      }).toThrow(MOVE_ERROR);
     }
   );
 
@@ -36,7 +40,7 @@ describe('사용자 입력 유효성 검사 테스트', () => {
     (input) => {
       expect(() => {
         Validator.validateGameCommand(input);
-      }).toThrow('R 또는 Q를 입력해주세요.');
+      }).toThrow(GAME_COMMAND_ERROR);
     }
   );
 
