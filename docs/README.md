@@ -35,7 +35,7 @@
 
 - [x] 위칸인 'U' 또는 아래칸인 'D' 입력받는다. - InputView#readMoving()
 
-- [ ] 게임 진행. - Game#moveOneStep(이제 건널 다리 index)
+- [x] 게임 진행. - Game#moveOneStep()
 
   - [x] 이동한다. BridgeGame#move()
         입력받은 U,D와 다음 bridge칸의 문자열이 같을경우 true 반환
@@ -45,7 +45,7 @@
 - [ ] 이동 완료 후 다음에 뭐 할지 판단하는 메서드 whatNext()
 
   - [ ] 이동에 성공했고 다리를 건넜다면 결과창 출력 후 게임 종료 - OutputView#printResult()
-  - [ ] 이동에 성공했고 아직 다리를 건너지 못했으면 다시 moveOneStep(생성한 다리, index + 1)
+  - [ ] 이동에 성공했고 아직 다리를 건너지 못했으면 다시 moveOneStep()
   - [ ] 이동에 실패했을 경우 재시작 R 하거나 종료 Q 입력받는다. - InputView#readGameCommand()
     - [ ] 재시작 할 경우 처음에 만든 다리 재사용 - BridgeGame#retry()
           moveOneStep(생성한 다리, 0)
