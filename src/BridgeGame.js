@@ -5,12 +5,14 @@ const BridgeMaker = require('./BridgeMaker');
 const BridgeRandomNumberGenerator = require('./BridgeRandomNumberGenerator');
 const Validator = require('./Validate/Validator');
 
-const SUCCESS = true;
-const FAIL = false;
-const RETRY = 'R';
-const QUIT = 'Q';
-const FIRST_ATTEMPTS = 1;
-const RESET_LOCATION = 0;
+const STRING = {
+  SUCCESS: true,
+  FAIL: false,
+  RETRY_CHAR: 'R',
+  QUIT_CHAR: 'Q',
+  FIRST_ATTEMPTS: 1,
+  RESET_LOCATION: 0,
+};
 
 class BridgeGame {
   #bridge;
@@ -24,7 +26,7 @@ class BridgeGame {
   constructor(bridge, location) {
     this.#bridge = bridge;
     this.#location = location;
-    this.#attempts = FIRST_ATTEMPTS;
+    this.#attempts = STRING.FIRST_ATTEMPTS;
     this.initGame();
   }
 
@@ -86,7 +88,7 @@ class BridgeGame {
     OutputView.printResult(
       this.#bridge,
       this.#location - 1,
-      SUCCESS,
+      STRING.SUCCESS,
       this.#attempts
     );
     MissionUtils.Console.close();
@@ -102,12 +104,12 @@ class BridgeGame {
     } catch {
       InputView.readGameCommand.bind(this)(this.moveFail);
     }
-    if (input === RETRY) this.retry();
-    if (input === QUIT) this.gameFailiure();
+    if (input === STRING.RETRY_CHAR) this.retry();
+    if (input === STRING.QUIT_CHAR) this.gameFailiure();
   }
 
   retry() {
-    this.#location = RESET_LOCATION;
+    this.#location = STRING.RESET_LOCATION;
     this.#attempts += 1;
     this.getMove();
   }
@@ -116,7 +118,7 @@ class BridgeGame {
     OutputView.printResult(
       this.#bridge,
       this.#location - 1,
-      FAIL,
+      STRING.FAIL,
       this.#attempts
     );
     MissionUtils.Console.close();
