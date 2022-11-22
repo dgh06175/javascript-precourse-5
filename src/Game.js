@@ -34,7 +34,6 @@ class Game {
     } catch {
       InputView.readBridgeSize.bind(this)(this.getBridge);
     }
-
     this.#bridgeLength = +input;
     this.#bridge = BridgeMaker.makeBridge(
       this.#bridgeLength,
@@ -47,17 +46,23 @@ class Game {
     InputView.readMoving.bind(this)(this.moveOneStep);
   }
 
-  moveOneStep(input) {
+  tryCatchforMove(callback) {
     try {
-      Validator.validateMoving(input);
+      callback();
     } catch {
       InputView.readMoving.bind(this)(this.moveOneStep);
     }
-    const bridgeGame = new BridgeGame(this.#bridge, this.#location);
-    const moveSuccess = bridgeGame.move(input);
-    OutputView.printMap(this.#bridge, this.#location, moveSuccess);
-    this.#location += 1;
-    this.whatNext(moveSuccess);
+  }
+
+  moveOneStep(input) {
+    this.tryCatchforMove(() => {
+      Validator.validateMoving(input);
+      const bridgeGame = new BridgeGame(this.#bridge, this.#location);
+      const moveSuccess = bridgeGame.move(input);
+      OutputView.printMap(this.#bridge, this.#location, moveSuccess);
+      this.#location += 1;
+      this.whatNext(moveSuccess);
+    });
   }
 
   whatNext(moveSuccess) {
