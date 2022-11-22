@@ -40,10 +40,7 @@ class BridgeGame {
       InputView.readBridgeSize.bind(this)(this.getBridge);
     }
     this.#bridgeLength = +input;
-    this.#bridge = BridgeMaker.makeBridge(
-      this.#bridgeLength,
-      BridgeRandomNumberGenerator.generate
-    );
+    this.#bridge = BridgeMaker.makeBridge(this.#bridgeLength, BridgeRandomNumberGenerator.generate);
     this.getMove();
   }
 
