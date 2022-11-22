@@ -3,6 +3,7 @@ const OutputView = require('./OutputView');
 const BridgeMaker = require('./BridgeMaker');
 const BridgeRandomNumberGenerator = require('./BridgeRandomNumberGenerator');
 const BridgeGame = require('./BridgeGame');
+const Validator = require('./Validator');
 
 const SUCCESS = true;
 const FAIL = false;
@@ -28,12 +29,17 @@ class Game {
   }
 
   getBridge(input) {
-    this.#bridgeLength = Number(input);
+    try {
+      Validator.validateBridgeSizeInput(input);
+    } catch {
+      InputView.readBridgeSize.bind(this)(this.getBridge);
+    }
+    this.#bridgeLength = +input;
     this.#bridge = BridgeMaker.makeBridge(
       this.#bridgeLength,
       BridgeRandomNumberGenerator.generate
     );
-    console.log(this.#bridge);
+    // console.log(this.#bridge);
     this.getMove();
   }
 
@@ -42,6 +48,11 @@ class Game {
   }
 
   moveOneStep(input) {
+    try {
+      Validator.validateMoving(input);
+    } catch {
+      InputView.readMoving.bind(this)(this.moveOneStep);
+    }
     const bridgeGame = new BridgeGame(this.#bridge, this.#location);
     const moveSuccess = bridgeGame.move(input);
     OutputView.printMap(this.#bridge, this.#location, moveSuccess);
@@ -71,10 +82,15 @@ class Game {
   }
 
   continueMove() {
-    InputView.readMoving.bind(this)(this.moveOneStep);
+    this.getMove();
   }
 
   moveFail(input) {
+    try {
+      Validator.validateGameCommand(input);
+    } catch {
+      InputView.readMoving.bind(this)(this.moveOneStep);
+    }
     if (input === 'R') {
       this.gameRetry();
     } else {
