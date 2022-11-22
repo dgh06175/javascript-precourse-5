@@ -7,7 +7,7 @@ describe('다리 생성 테스트', () => {
   });
 
   test('D 다리 생성 테스트', () => {
-    const result = BridgeMaker.makeBridge(5, () => 0);
-    expect(result).toEqual(['D', 'D', 'D', 'D', 'D']);
+    const result = BridgeMaker.makeBridge(6, () => 0);
+    expect(result).toEqual(['D', 'D', 'D', 'D', 'D', 'D']);
   });
 });

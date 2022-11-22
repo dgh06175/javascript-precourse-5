@@ -1,4 +1,5 @@
 const OutputView = require('../src/OutputView');
+
 describe('중간 결과창 맵 생성 테스트', () => {
   const MAP = 'DUUD';
   const LOCATION = 3;
@@ -20,7 +21,7 @@ describe('중간 결과창 맵 생성 테스트', () => {
         isSuccess[i],
         whatLineMap[i]
       );
-      expect(result).toEqual(results[i]); // 예상되는 결과 작성
+      expect(result).toEqual(results[i]);
     });
   }
 });
