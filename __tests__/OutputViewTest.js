@@ -1,4 +1,4 @@
-const OutputView = require('../src/OutputView');
+const OutputView = require('../src/View/OutputView');
 
 describe('중간 결과창 맵 생성 테스트', () => {
   const MAP = 'DUUD';

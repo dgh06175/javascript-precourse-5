@@ -1,4 +1,4 @@
-const Validator = require('../src/Validator');
+const Validator = require('../src/Validate/Validator');
 
 describe('사용자 입력 유효성 검사 테스트', () => {
   test.each([['-1'], ['2'], ['21'], ['a']])(
