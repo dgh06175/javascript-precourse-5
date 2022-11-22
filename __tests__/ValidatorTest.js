@@ -16,11 +16,14 @@ describe('사용자 입력 유효성 검사 테스트', () => {
     });
   });
 
-  test.each([['DE'], ['2'], [' ']])('이동 유효성 검사 - 예외', (input) => {
-    expect(() => {
-      Validator.validateMoving(input);
-    }).toThrow('U 또는 D를 입력해주세요.');
-  });
+  test.each([['DE'], ['2'], [' '], ['a']])(
+    '이동 유효성 검사 - 예외',
+    (input) => {
+      expect(() => {
+        Validator.validateMoving(input);
+      }).toThrow('U 또는 D를 입력해주세요.');
+    }
+  );
 
   test('이동 유효성 검사 - 성공', () => {
     expect(() => {
@@ -28,7 +31,7 @@ describe('사용자 입력 유효성 검사 테스트', () => {
     });
   });
 
-  test.each([['QQ'], ['D'], ['32']])(
+  test.each([['QQ'], ['D'], ['32'], ['a']])(
     '게임 커맨드 유효성 검사 - 예외',
     (input) => {
       expect(() => {
