@@ -9,7 +9,7 @@ describe('다리 건널때 성공 실패 여부 테스트', () => {
   const bridgeGame = new BridgeGame(BRIDGE, INDEX);
   for (let i = 0; i < LOOP; i += 1) {
     test(`테스트 ${i + 1}`, () => {
-      const result = bridgeGame.move(INPUT[i]);
+      const result = bridgeGame.isSuccess(INPUT[i]);
       expect(result).toEqual(results[i]);
     });
   }
