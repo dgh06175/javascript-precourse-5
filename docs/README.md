@@ -53,13 +53,13 @@
 
 #### 예외 상황
 
-- [ ] readBridgeSize 예외처리 후 다시 입력 받기
-  - [ ] 숫자가 아니면 throw
-  - [ ] 3~20 사이가 아니면 throw
-- [ ] readMoving 예외처리 후 다시 입력 받기
-  - [ ] 'U' 또는 'D'가 아니면 throw
-- [ ] readGameCommand 예외처리 후 다시 입력 받기
-  - [ ] 'R' 또는 'Q'가 아니면 throw
+- [x] readBridgeSize 예외처리 후 다시 입력 받기
+  - [x] 숫자가 아니면 throw
+  - [x] 3~20 사이가 아니면 throw
+- [x] readMoving 예외처리 후 다시 입력 받기
+  - [x] 'U' 또는 'D'가 아니면 throw
+- [x] readGameCommand 예외처리 후 다시 입력 받기
+  - [x] 'R' 또는 'Q'가 아니면 throw
 
 ### 해야할 일
 
