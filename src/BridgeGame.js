@@ -10,11 +10,12 @@
  */
 class BridgeGame {
   #bridge;
+
   #location;
 
-  constructor(bridge, index) {
+  constructor(bridge, location) {
     this.#bridge = bridge;
-    this.#location = index;
+    this.#location = location;
   }
 
   /**
