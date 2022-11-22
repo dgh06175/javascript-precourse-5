@@ -27,7 +27,6 @@ describe('사용자 입력 유효성 검사 테스트', () => {
       Validator.validateMoving('U');
     });
   });
-  c;
 
   test.each([['QQ'], ['D'], ['32']])(
     '게임 커맨드 유효성 검사 - 예외',
