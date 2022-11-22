@@ -1,7 +1,7 @@
 const Validator = require('../src/Validator');
 
 describe('사용자 입력 유효성 검사 테스트', () => {
-  test.each([['-1'], ['2'], ['21']])(
+  test.each([['-1'], ['2'], ['21'], ['a']])(
     '다리 길이 유효성 검사 - 예외',
     (input) => {
       expect(() => {
