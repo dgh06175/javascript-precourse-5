@@ -34,12 +34,12 @@ class Game {
     } catch {
       InputView.readBridgeSize.bind(this)(this.getBridge);
     }
+
     this.#bridgeLength = +input;
     this.#bridge = BridgeMaker.makeBridge(
       this.#bridgeLength,
       BridgeRandomNumberGenerator.generate
     );
-    // console.log(this.#bridge);
     this.getMove();
   }
 
@@ -89,11 +89,12 @@ class Game {
     try {
       Validator.validateGameCommand(input);
     } catch {
-      InputView.readMoving.bind(this)(this.moveOneStep);
+      InputView.readGameCommand.bind(this)(this.moveFail);
     }
     if (input === 'R') {
       this.gameRetry();
-    } else {
+    }
+    if (input === 'Q') {
       this.gameFailiure();
     }
   }
