@@ -4,10 +4,12 @@ const { Console } = MissionUtils;
 
 const STRING = require('../Constant/Constant');
 
+const MIN_BRIDGE_LEN = 3;
+const MAX_BRIDGE_LEN = 20;
+
 const Validator = {
   isInt: (input) => Number.isInteger(+input),
-  isValidSize: (input) =>
-    +input >= STRING.MIN_BRIDGE_LEN && +input <= STRING.MAX_BRIDGE_LEN,
+  isValidSize: (input) => +input >= MIN_BRIDGE_LEN && +input <= MAX_BRIDGE_LEN,
   isValidMove: (input) => input === STRING.DOWN || input === STRING.UP,
   isValidGameCommand: (input) =>
     input === STRING.RETRY || input === STRING.QUIT,
