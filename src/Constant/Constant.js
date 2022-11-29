@@ -1,8 +1,6 @@
 const STRING = {
   UP: 'U',
   DOWN: 'D',
-  MIN_BRIDGE_LEN: 3,
-  MAX_BRIDGE_LEN: 20,
   ERROR: '[ERROR] ',
   BRIGE_SIZE_ERROR: '다리 길이는 3부터 20 사이의 숫자여야 합니다.',
   MOVE_ERROR: '이동할 칸은 U또는 D여야 합니다.',
@@ -14,7 +12,7 @@ const STRING = {
   START_OUTPUT: '다리 건너기 게임을 시작합니다.',
   O: 'O',
   X: 'X',
-  EMPTY_STRING: '',
+  EMPTY: '',
   BLANK: ' ',
   LEFT_WALL: '[',
   RIGHT_WALL: ']',
