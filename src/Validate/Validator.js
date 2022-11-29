@@ -2,27 +2,15 @@ const MissionUtils = require('@woowacourse/mission-utils');
 
 const { Console } = MissionUtils;
 
-const STRING = {
-  UP_CHAR: 'U',
-  DOWN_CHAR: 'D',
-  RETRY_CHAR: 'R',
-  QUIT_CHAR: 'Q',
-  MIN_BRIDGE_LEN: 3,
-  MAX_BRIDGE_LEN: 20,
-  ERROR: '[ERROR] ',
-  BRIGE_SIZE_ERROR: '다리 길이는 3부터 20 사이의 숫자여야 합니다.',
-  MOVE_ERROR: '이동할 칸은 U또는 D여야 합니다.',
-  GAME_COMMAND_ERROR: '재시작 여부는 R또는 Q여야 합니다.',
-};
+const STRING = require('../Constant/Constant');
 
 const Validator = {
   isInt: (input) => Number.isInteger(+input),
   isValidSize: (input) =>
     +input >= STRING.MIN_BRIDGE_LEN && +input <= STRING.MAX_BRIDGE_LEN,
-  isValidMove: (input) =>
-    input === STRING.DOWN_CHAR || input === STRING.UP_CHAR,
+  isValidMove: (input) => input === STRING.DOWN || input === STRING.UP,
   isValidGameCommand: (input) =>
-    input === STRING.RETRY_CHAR || input === STRING.QUIT_CHAR,
+    input === STRING.RETRY || input === STRING.QUIT,
 
   validateBridgeSizeInput(input) {
     if (!this.isInt(input) || !this.isValidSize(input)) {
