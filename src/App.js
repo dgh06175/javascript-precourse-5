@@ -12,7 +12,7 @@ class App {
   isBall = (num, i) =>
     this.#computerNumber[i] !== num && this.#computerNumber.includes(num);
 
-  isValid = (answer) => answer.length === 3 && !isNaN(Number(answer));
+  isValid = (answer) => answer.length === 3 && Number.isInteger(+answer);
 
   constructor() {
     this.#playerNumber = '';
@@ -36,21 +36,25 @@ class App {
         throw new Error('잘못된 입력입니다..');
       }
 
-      this.#playerNumber = [...answer];
-      this.result = {};
-
-      this.#playerNumber.forEach((num, i) => {
-        if (this.isStrike(num, i)) {
-          this.result.strike = this.result.strike + 1 || 1;
-        }
-        if (this.isBall(num, i)) {
-          this.result.ball = this.result.ball + 1 || 1;
-        }
-      });
-
-      this.printResultText();
-      this.continueGame();
+      this.playGame(answer);
     });
+  }
+
+  playGame(answer) {
+    this.#playerNumber = [...answer];
+    this.result = {};
+
+    this.#playerNumber.forEach((num, i) => {
+      if (this.isStrike(num, i)) {
+        this.result.strike = this.result.strike + 1 || 1;
+      }
+      if (this.isBall(num, i)) {
+        this.result.ball = this.result.ball + 1 || 1;
+      }
+    });
+
+    this.printResultText();
+    this.continueGame();
   }
 
   printResultText() {
