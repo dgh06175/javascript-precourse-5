@@ -1,0 +1,32 @@
+const STRING = {
+  UP: 'U',
+  DOWN: 'D',
+  ERROR: '[ERROR] ',
+  BRIGE_SIZE_ERROR: '다리 길이는 3부터 20 사이의 숫자여야 합니다.',
+  MOVE_ERROR: '이동할 칸은 U또는 D여야 합니다.',
+  GAME_COMMAND_ERROR: '재시작 여부는 R또는 Q여야 합니다.',
+  READ_BRIDGE_SIZE_TEXT: '\n다리의 길이를 입력해주세요.\n',
+  READ_MOVING_TEXT: '\n이동할 칸을 선택해주세요. (위: U, 아래: D)\n',
+  READ_GAME_COMMAND_TEXT:
+    '\n게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)\n',
+  START_OUTPUT: '다리 건너기 게임을 시작합니다.',
+  O: 'O',
+  X: 'X',
+  EMPTY: '',
+  BLANK: ' ',
+  LEFT_WALL: '[',
+  RIGHT_WALL: ']',
+  MIDDLE_WALL: '|',
+  FINAL_GAME_RESULT: '\n최종 게임 결과',
+  GAME_SUCCESS: '\n게임 성공 여부: 성공',
+  GAME_FAILURE: '\n게임 성공 여부: 실패',
+  TOTAL_ATTEMPTS: '총 시도한 횟수: ',
+  SUCCESS: true,
+  FAIL: false,
+  RETRY: 'R',
+  QUIT: 'Q',
+  FIRST_ATTEMPTS: 1,
+  RESET_LOCATION: 0,
+};
+
+module.exports = STRING;
